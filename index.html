@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lighter.xyz | zk-Powered Perpetual Exchange Quiz</title>
+  <style>
+    :root {
+      --bg-dark: #0b0e1a;
+      --bg-card: #151a2c;
+      --primary: #00d4ff;
+      --secondary: #ffcc00;
+      --text-light: #e6e6e6;
+      --text-muted: #9aa0b5;
+      --radius: 12px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 60px;
+      background: radial-gradient(circle at top right, #102045 0%, #0b0e1a 80%);
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .launch-btn {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      background: var(--primary);
+      color: #0b0e1a;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .launch-btn:hover {
+      background: #06bde0;
+      transform: translateY(-3px);
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2.section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2rem;
+      color: var(--secondary);
+    }
+
+    /* --- Infographic Cards --- */
+    .infographic {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid #1f2540;
+      border-radius: var(--radius);
+      padding: 30px 25px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* --- Quiz --- */
+    .quiz-container {
+      background: var(--bg-card);
+      padding: 40px 30px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      max-width: 650px;
+      margin: auto;
+    }
+    .quiz-container h2 {
+      color: var(--secondary);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .progress {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .question {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 25px 0 15px;
+      color: var(--text-light);
+    }
+    .options {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+    .options li {
+      margin: 12px 0;
+    }
+    .options label {
+      display: block;
+      padding: 12px 15px;
+      background: #1a2038;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .options label:hover {
+      background: #232a4d;
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+      accent-color: var(--primary);
+    }
+    .next-btn {
+      background: var(--primary);
+      color: #0b0e1a;
+      font-weight: bold;
+      border: none;
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.3s;
+      display: block;
+      margin: 0 auto;
+    }
+    .next-btn:hover {
+      background: #06bde0;
+      transform: scale(1.05);
+    }
+    .result {
+      text-align: center;
+      margin-top: 20px;
+      color: var(--secondary);
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    .correct-answers {
+      background: #1a2038;
+      padding: 15px;
+      border-radius: var(--radius);
+      margin-top: 25px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      color: var(--text-muted);
+      border-top: 1px solid #1a2038;
+      font-size: 0.85rem;
+      margin-top: 70px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .card, .quiz-container {
+      animation: fadeInUp 0.8s ease both;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lighter.xyz</h1>
+    <p>The zk-powered perpetual futures exchange — trade with zero trust, total transparency, and verifiable performance.</p>
+    <a href="https://app.lighter.xyz" class="launch-btn">🚀 Launch App</a>
+  </header>
+
+  <section id="features">
+    <h2 class="section-title">Why Choose Lighter?</h2>
+    <div class="infographic">
+      <div class="card">
+        <h3>⚡ Instant Settlement</h3>
+        <p>Experience near-real-time trades backed by cryptographic proofs for absolute fairness.</p>
+      </div>
+      <div class="card">
+        <h3>🔒 zk-Verified Security</h3>
+        <p>Every operation is proven through zero-knowledge cryptography — no blind trust required.</p>
+      </div>
+      <div class="card">
+        <h3>💡 Transparent Engine</h3>
+        <p>Lighter’s order matching and liquidation logic are publicly verifiable and censorship-resistant.</p>
+      </div>
+      <div class="card">
+        <h3>🌐 Built for Scale</h3>
+        <p>Custom zk circuits and batching enable high throughput while maintaining Ethereum-level security.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <div class="quiz-container">
+      <h2>zk Quiz Challenge 🧠</h2>
+      <div class="progress" id="progress">Question 1 of 10</div>
+      <div id="quiz-area">
+        <div class="question" id="question"></div>
+        <ul class="options" id="options"></ul>
+        <button class="next-btn" id="nextBtn">Next</button>
+      </div>
+      <div id="result"></div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Lighter.xyz — zk-Rollup Exchange for the Future of Trading.
+  </footer>
+
+  <script>
+    const quizData = [
+      {question:"Lighter.xyz is a:",options:["NFT marketplace","zk-rollup perpetual futures exchange","Lending protocol","DEX aggregator"],answer:1},
+      {question:"What does 'zk' mean in zk-rollup?",options:["Zero-knowledge","Zone kernel","Zero-key","Zen-keeper"],answer:0},
+      {question:"What is the main benefit of zk-proofs?",options:["Scalability + verifiability","Higher gas fees","Centralized custody","Slower speed"],answer:0},
+      {question:"Where are users’ assets held?",options:["In Lighter custody","In users’ own wallets","In bank accounts","In a centralized pool"],answer:1},
+      {question:"Which network layer does Lighter build on?",options:["Ethereum / L2","Bitcoin","Avalanche","Cardano"],answer:0},
+      {question:"Which process becomes verifiable with Lighter?",options:["Trade matching","Liquidations","Cancels","All of the above"],answer:3},
+      {question:"Lighter enables ___ trading performance.",options:["Transparent and verifiable","Hidden","Off-chain only","Unverified"],answer:0},
+      {question:"What ensures fairness in trade execution?",options:["Random guessing","zk-proof verified matching","Manual checks","Custodial escrow"],answer:1},
+      {question:"Lighter’s rollup design focuses on:",options:["Speed, scale, and verifiability","Marketing","Custody","KYC"],answer:0},
+      {question:"What describes Lighter’s core vision?",options:["Trustless transparent trading","Centralized exchange","Private ledger","Closed-source model"],answer:0}
+    ];
+
+    let current = 0, score = 0, userAnswers = [];
+
+    const qEl = document.getElementById("question");
+    const optEl = document.getElementById("options");
+    const progress = document.getElementById("progress");
+    const nextBtn = document.getElementById("nextBtn");
+    const resultEl = document.getElementById("result");
+    const quizArea = document.getElementById("quiz-area");
+
+    function loadQuestion(){
+      const q = quizData[current];
+      qEl.textContent = q.question;
+      progress.textContent = `Question ${current + 1} of ${quizData.length}`;
+      optEl.innerHTML = "";
+      q.options.forEach((opt, i)=>{
+        const li = document.createElement("li");
+        li.innerHTML = `<label><input type="radio" name="option" value="${i}"> ${opt}</label>`;
+        optEl.appendChild(li);
+      });
+    }
+
+    nextBtn.addEventListener("click", ()=>{
+      const choice = document.querySelector('input[name="option"]:checked');
+      if(!choice){alert("Please select an option."); return;}
+      const value = parseInt(choice.value);
+      userAnswers.push(value);
+      if(value === quizData[current].answer) score++;
+      current++;
+      if(current < quizData.length){ loadQuestion(); }
+      else { showResult(); }
+    });
+
+    function showResult(){
+      quizArea.style.display = "none";
+      let html = `<div class='result'>You scored ${score} / ${quizData.length}</div>`;
+      html += `<div class='correct-answers'><strong>Answer Key:</strong><br><ul>`;
+      quizData.forEach((q,i)=>{
+        html += `<li>Q${i+1}: ${q.question}<br>✅ Correct: ${q.options[q.answer]}<br>📝 You: ${q.options[userAnswers[i]] || "Skipped"}</li><br>`;
+      });
+      html += `</ul></div><button class='next-btn' onclick='location.reload()'>Play Again</button>`;
+      resultEl.innerHTML = html;
+    }
+
+    loadQuestion();
+  </script>
+</body>
+</html>
