@@ -5,139 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ligher.xyz | The Future of Trading</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: radial-gradient(circle at top, #0d0d10, #000);
-      color: #f5f5f5;
-      overflow-x: hidden;
-    }
-    header {
-      text-align: center;
-      padding: 80px 20px 60px;
-      background: linear-gradient(135deg, #00d4ff, #0044ff);
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
-      color: white;
-    }
-    header h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-      letter-spacing: 1px;
-    }
-    header p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
-      opacity: 0.9;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-    .infographic {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      margin: 50px 0;
-    }
-    .card {
-      background: #111;
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 0 15px rgba(0, 136, 255, 0.3);
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      background: #151522;
-    }
-    .card h3 {
-      color: #00d4ff;
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-    }
-    .quiz-section {
-      background: #0f0f14;
-      padding: 30px;
-      border-radius: 15px;
-      margin-top: 50px;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(0, 200, 255, 0.15);
-    }
-    .quiz-section h2 {
-      color: #00d4ff;
-      margin-bottom: 20px;
-    }
-    .question {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
-    .options button {
-      background: #111;
-      color: #fff;
-      border: 1px solid #00d4ff;
-      border-radius: 8px;
-      padding: 10px 15px;
-      margin: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .options button:hover {
-      background: #00d4ff;
-      color: #000;
-    }
-    #next-btn {
-      margin-top: 20px;
-      display: none;
-      background: #00d4ff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    #score-container {
-      display: none;
-      margin-top: 30px;
-    }
-    .community {
-      text-align: center;
-      margin-top: 60px;
-      padding: 30px;
-      background: #101010;
-      border-radius: 12px;
-    }
-    .community h2 {
-      color: #00d4ff;
-      margin-bottom: 10px;
-    }
-    .community p {
-      color: #ccc;
-      margin-bottom: 15px;
-    }
-    .community a {
-      color: #00d4ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    footer {
-      margin-top: 50px;
-      background: #000;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #999;
-    }
-    footer a {
-      color: #00d4ff;
-      text-decoration: none;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; background: radial-gradient(circle at top, #0d0d10, #000); color: #f5f5f5; overflow-x: hidden; }
+    header { text-align: center; padding: 80px 20px 60px; background: linear-gradient(135deg, #00d4ff, #0044ff); clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); color: white; }
+    header h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 15px; letter-spacing: 1px; }
+    header p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; opacity: 0.9; }
+    .container { max-width: 1000px; margin: 40px auto; padding: 20px; }
+    .infographic { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin: 50px 0; }
+    .card { background: #111; border-radius: 15px; padding: 25px; box-shadow: 0 0 15px rgba(0, 136, 255, 0.3); transition: transform 0.3s ease, background 0.3s ease; }
+    .card:hover { transform: translateY(-5px); background: #151522; }
+    .card h3 { color: #00d4ff; margin-bottom: 10px; font-size: 1.2rem; }
+    .quiz-section { background: #0f0f14; padding: 30px; border-radius: 15px; margin-top: 50px; text-align: center; box-shadow: 0 0 20px rgba(0, 200, 255, 0.15); }
+    .quiz-section h2 { color: #00d4ff; margin-bottom: 20px; }
+    .question { font-size: 1.1rem; margin-bottom: 20px; }
+    .options button { background: #111; color: #fff; border: 1px solid #00d4ff; border-radius: 8px; padding: 10px 15px; margin: 8px; cursor: pointer; transition: 0.3s; }
+    .options button:hover { background: #00d4ff; color: #000; }
+    #next-btn { margin-top: 20px; display: none; background: #00d4ff; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; }
+    #score-container { display: none; margin-top: 30px; }
+    .community { text-align: center; margin-top: 60px; padding: 30px; background: #101010; border-radius: 12px; }
+    .community h2 { color: #00d4ff; margin-bottom: 10px; }
+    .community p { color: #ccc; margin-bottom: 15px; }
+    .community a { color: #00d4ff; text-decoration: none; font-weight: bold; }
+    footer { margin-top: 50px; background: #000; text-align: center; padding: 20px; font-size: 0.9rem; color: #999; }
+    footer a { color: #00d4ff; text-decoration: none; }
   </style>
 </head>
 <body>
@@ -185,11 +75,7 @@
       <h2>💬 Join the Community</h2>
       <p>Follow and connect with the Ligher team on X to stay updated and earn your OG recognition.</p>
       <p>
-        <a href="https://x.com/vnovakovski">@vnovakovski</a> •
-        <a href="https://x.com/muhammedeminayar">@muhammedeminayar</a> •
-        <a href="https://x.com/ahmetyasinalp">@ahmetyasinalp</a> •
-        <a href="https://x.com/osmanorhanuysal">@osmanorhanuysal</a> •
-        <a href="https://x.com/margaretmcfalls">@margaretmcfalls</a>
+        <a href="https://x.com/vnovakovski">@vnovakovski</a>
       </p>
     </section>
   </div>
@@ -200,31 +86,11 @@
 
   <script>
     const quizData = [
-      {
-        question: "What technology powers Ligher.xyz?",
-        options: ["zkRollups", "Sidechains", "Layer 0", "Proof of Stake"],
-        answer: 0
-      },
-      {
-        question: "What type of trading does Ligher support?",
-        options: ["Spot trading", "Perpetual futures", "NFT swaps", "Staking only"],
-        answer: 1
-      },
-      {
-        question: "Ligher focuses on combining privacy with what?",
-        options: ["Scalability", "AI", "SocialFi", "NFTs"],
-        answer: 0
-      },
-      {
-        question: "Who is one of the co-founders of Ligher?",
-        options: ["Vladislav Novakovski", "Vitalik Buterin", "Changpeng Zhao", "Sam Altman"],
-        answer: 0
-      },
-      {
-        question: "What’s the goal of Ligher.xyz?",
-        options: ["To build a private, fast, decentralized trading platform", "To launch a meme coin", "To create a social app", "To mine Bitcoin"],
-        answer: 0
-      }
+      { question: "What technology powers Ligher.xyz?", options: ["zkRollups","Sidechains","Layer 0","Proof of Stake"], answer: 0 },
+      { question: "What type of trading does Ligher support?", options: ["Spot trading","Perpetual futures","NFT swaps","Staking only"], answer: 1 },
+      { question: "Ligher focuses on combining privacy with what?", options: ["Scalability","AI","SocialFi","NFTs"], answer: 0 },
+      { question: "Who is one of the co-founders of Ligher?", options: ["Vladislav Novakovski","Rand Hindi","Changpeng Zhao","Sam Altman"], answer: 0 },
+      { question: "What’s the goal of Ligher.xyz?", options: ["To build a private, fast, decentralized trading platform","To launch a meme coin","To create a social app","To mine Bitcoin"], answer: 0 }
     ];
 
     const questionEl = document.getElementById('question');
@@ -251,15 +117,10 @@
 
     function selectAnswer(i) {
       const correct = quizData[currentQuestion].answer;
-      if (i === correct) {
-        score++;
-      }
+      if (i === correct) { score++; }
       currentQuestion++;
-      if (currentQuestion < quizData.length) {
-        loadQuestion();
-      } else {
-        endQuiz();
-      }
+      if (currentQuestion < quizData.length) { loadQuestion(); } 
+      else { endQuiz(); }
     }
 
     function endQuiz() {
